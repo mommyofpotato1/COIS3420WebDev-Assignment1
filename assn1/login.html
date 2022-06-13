@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <!--simple header with a class to help organize it with a flex box-->
+    <header class="header">
+        <div>
+            <img src="./cupcake.png" alt="cupcake" />
+        </div>
+
+
+        <div class="maintitle">
+            <h1>My Video Library</h1>
+        </div>
+    </header>
+
+    <!--the div class wrapper is what I used for my css grid to divide up the main and nav sections-->
+    <div class="wrapper">
+        <!--since learning the php, I am glad I did it this way. My nav is in a class, so is my main-->
+        <div class="nav">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home </a> </li>
+                </ul>
+            </nav>
+            <h3> Videos </h3>
+            <!--nav to video elements, div navline is just used to place the yellow line-->
+            <ul class="navline">
+
+                <li><a href="myvideos.html">My Videos </a> </li>
+                <li><a href="addvid.html">Add Videos </a> </li>
+                <li><a href="details.html">Details </a> </li>
+                <li><a href="search.html">Search Videos </a> </li>
+
+            </ul>
+            <h3> Account </h3>
+            <!--nav to account elements, div navline is just used to place the yellow line-->
+            <ul class="navline">
+
+                <li><a href="register.html">Register </a> </li>
+                <li><a href="login.html">Login </a> </li>
+                <li><a href="forgot.html">Forgotten Password </a> </li>
+
+            </ul>
+        </div>
+        <div class="main">
+            <!--main class is on every page and contains whatever is the point of that page, in this case login-->
+
+            <form>
+                <!-- just a form that contains inputs, text and checkbox with a login button and a forgot that will eventually lead to forgot page-->
+                <h4>Login:</h4>
+                <div class="line">
+
+                    <p>Username:
+                        <input type="text" name="username" size="15" maxlength="25" required="required" />
+
+                    </p>
+                    <p>Password:
+                        <input type="text" name="password" size="10" required="required">
+                    </p>
+                    <p>Remember Me:
+                        <input type="checkbox" name="remember" />
+                    </p>
+                    <p>
+                        <button id="login">Login</button>
+                        <button id="button">Forgot my Password or Id</button>
+                    </p>
+                </div>
+            </form>
+
+
+
+        </div>
+    </div>
+    <!--again,used a class here to help myself when doing the css grid-->
+    <footer class="footer">
+
+        <h3>Lauren Sisson Dales</h3>
+
+    </footer>
+</body>
+
+</html>

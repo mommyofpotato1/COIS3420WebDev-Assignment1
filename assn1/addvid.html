@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <!--simple header with a class to help organize it with a flex box-->
+    <header class="header">
+        <div>
+            <img src="./cupcake.png" alt="cupcake" />
+        </div>
+
+
+        <div class="maintitle">
+            <h1>My Video Library</h1>
+        </div>
+    </header>
+
+
+    <!--the div class wrapper is what I used for my css grid to divide up the main and nav sections-->
+    <div class="wrapper">
+        <!-- My nav is in a class, so is my main-->
+        <div class="nav">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home </a> </li>
+                </ul>
+            </nav>
+            <h3> Videos </h3>
+            <ul class="navline">
+                <!--nav to video elements, div navline is just used to place the yellow line-->
+
+                <li><a href="myvideos.html">My Videos </a> </li>
+                <li><a href="addvid.html">Add Videos </a> </li>
+                <li><a href="details.html">Details </a> </li>
+                <li><a href="search.html">Search Videos </a> </li>
+
+            </ul>
+            <h3> Account </h3>
+            <!--nav to account elements, div navline is just used to place the yellow line-->
+            <ul class="navline">
+
+                <li><a href="register.html">Register </a> </li>
+                <li><a href="login.html">Login </a> </li>
+                <li><a href="forgot.html">Forgotten Password </a> </li>
+
+            </ul>
+        </div>
+        <div class="main">
+            <!--main class is on every page and contains whatever is the point of that page, in this case adding video-->
+
+            <h4>Add Video</h4>
+            <!-- div line is for the yellow line but also helped sort the individual elements-->
+            <div class="line">
+
+                <!--input for title using text box-->
+                <div>
+                    <p>
+                        <label>Title:</label>
+                        <input type="text" name="title" size="15" maxLength="25" required="required" />
+                    </p>
+                </div>
+                <!--radio button for age rating-->
+                <div>
+                    <form>
+                        <label>MPAA Rating:</label>
+                        <input type="radio" name="mpaa" value="g" /> <label>G</label>
+                        <input type="radio" name="mpaa" value="pg" /> <label>PG</label>
+                        <input type="radio" name="mpaa" value="pg13" /><label>PG13</label>
+                        <input type="radio" name="mpaa" value="r" /> <label>R</label>
+                        <input type="radio" name="mpaa" value="nc-17" /><label>NC-17</label>
+
+                    </form>
+                </div>
+                <!--this is incomplete, I wrote the java but the value doesn't seem to stay when you slide across, it looks pretty though-->
+                <div>
+                    <p>
+                        <label>Rating</label>
+                        <input class="rating" max="5" oninput="this.style.setProperty('--value', this.value)" step="0.5" type="range" value="1">
+                    </p>
+                </div>
+
+                <div>
+                    <form>
+                        <!--form containing a multiple choice menu incase you watch a sports musical-->
+                        <label>Genre:</label>
+                        <select name="Genre" size="5" multiple="multiple">
+                        <option value="horror" selected="selected"> Horror </option>
+                        <option value="comedy"> Comedy </option>
+                        <option value="romcom"> RomCom </option>
+                        <option value="documentary"> Documentary </option>
+                        <option value="action"> Action </option>
+                        <option value="kids/family">Kids/Family </option>
+                        <option value="sports"> sports </option>
+                        <option value="drama"> Drama </option>
+                        <option value="Comedy"> Comedy </option>
+                        <option value="thriller"> Thriller </option>
+                        <option value="musical"> Musical </option>
+                        </select>
+
+                    </form>
+                </div>
+                <!--simple text box for release year-->
+                <div>
+                    <p>Release Year
+                        <input type="text" name="year" size="4" maxlength="4" />
+                    </p>
+                </div>
+                <div>
+                    <!--simple text box for run minutes-->
+                    <p>Run time (minutes)
+                        <input type="text" name="runtime" size="5" />
+                    </p>
+                </div>
+                <div>
+                    <!--simple text box for theatre release year-->
+                    <p>Theatrical Release
+                        <input type="text" name="trelease" />
+                    </p>
+                </div>
+                <div>
+                    <!--simple text for dvd release year,now that I am adding comments, I am going to change this to a calender after I submit-->
+                    <p>DVD Release
+                        <input type="text" name="dvdrelease" />
+                    </p>
+                </div>
+                <div>
+                    <!--text area so you can add lots of actors-->
+                    <p>Actors
+                        <textarea name="actors" cols="20" rows="5">Enter actors names seperated by commas</textarea>
+                    </p>
+                </div>
+                <div>
+                    <!--textbox for student-->
+                    <p>Studio
+                        <input type="text" name="studio" />
+                    </p>
+                </div>
+                <div>
+                    <!--text area for writing the plot-->
+                    <p>Plot Summary
+                        <textarea name="actors" cols="20" rows="5"></textarea>
+                    </p>
+                </div>
+
+                <div>
+                    <!--uploading movie cover, can use a file or url-->
+                    <form>
+                        <label>Upload Movie Cover Photo</label>
+                        <input type="file" id="coverfile" name="coverphoto " />
+                        <button class="submit">Submit</button>
+                    </form>
+                </div>
+                <div>
+                    <form>
+                        <label>Enter URL of cover photo</label>
+                        <input type="url" id=cover name="coverphotourl" />
+
+                    </form>
+                </div>
+                <div>
+                    <form>
+                        <!--last form of the page, simple checkboxes to select all the types you want-->
+                        <label>Video Type:</label>
+                        <input type="checkbox" id="dvd" name="dvd" value="dvd">
+                        <label for="dvd"> DVD</label>
+                        <input type="checkbox" id="blueray" name="blueray" value="blueray">
+                        <label for="blueray"> blueray</label>
+                        <input type="checkbox" id="4k" name="4k" value="4k">
+                        <label for="4k"> 4k</label>
+                        <input type="checkbox" id="digitalsd" name="digitalsd" value="digitalsd">
+                        <label for="digitalsd"> Digital SD</label>
+                        <input type="checkbox" id="digitalhd" name="digitalhd" value="digitalhd">
+                        <label for="digitalhd"> Digital HD</label>
+                        <input type="checkbox" id="digital4k" name="digital4k" value="digital4k">
+                        <label for="digital4k"> Digital 4k</label>
+                        <input type="checkbox" id="online" name="online" value="online">
+                        <label for="online"> Online</label>
+                        <input type="checkbox" id="other" name="other" value="other">
+                        <label for="other"> Other</label>
+
+                    </form>
+                </div>
+                <div><button class="submit">Submit</button></div>
+            </div>
+
+        </div>
+
+
+
+
+
+
+    </div>
+    <!--this is a footer-->
+    <footer class="footer">
+
+        <h3>Lauren Sisson Dales</h3>
+
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,406 @@
+:root {
+    --background-dark: #2e0e43;
+    --background-light: #c6bdd0;
+    --text-dark: #240b36;
+    --text-light: #e9e3ed;
+    --accent: #c7d66d;
+    --links: #16697a;
+    --shadow: #444;
+    --star: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.25l-6.188 3.75 1.641-7.031-5.438-4.734 7.172-0.609 2.813-6.609 2.813 6.609 7.172 0.609-5.438 4.734 1.641 7.031z"/></svg>');
+    --fill: gold;
+    --fillbg: white;
+    --dir: right;
+    --stars: 5;
+    --starsize: 3rem;
+    --symbol: var(--star);
+    --value: 1;
+    --w: calc(var(--stars) * var(--starsize));
+    --x: calc(100% * (var(--value) / var(--stars)));
+}
+
+
+/*wild card or general layout, main background is dark, font family site wide from imported google fonts, 
+default text alignment is center, default text color is dark*/
+
+* {
+    font-family: Lato, sans-serif;
+    text-align: center;
+    color: var(--text-dark);
+    background-color: var(--background-dark);
+}
+
+
+/*using the wrapper class to create a grid that starts below the header, it has two columns 20% for nav and 80% for main
+body. Three rows, 0% takes it up to the flexbox, 80% main body and 5% is the footer. */
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 20% auto;
+    grid-template-rows: 0% auto auto;
+    gap: 10px;
+}
+
+
+/*header class, header block, with a bottom border, creating a flex container thats wraps, it says rows but the divs are actually
+laid out in columns img|h1, justify content to left side or where the container starts*/
+
+body>.header {
+    border-bottom: 6px solid var(--accent);
+    display: flex;
+    flex: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+
+/*using the grid to put the nav class in the first row and change text color*/
+
+.nav {
+    color: var(--text-light);
+    grid-column: 1/span 1;
+    grid-row: 2/span end;
+    /*border: 1px dotted red;
+    z-index: 999; I spread this throughout my code while working on it to see the outlines of my grids/flexboxes*/
+}
+
+
+/*placing my main area in the grid*/
+
+.main {
+    grid-area: 2/2/end/end;
+}
+
+
+/*using a flex to stretch out my main title box*/
+
+.maintitle {
+    flex: 5 5 0
+}
+
+
+/* the below code block adjusts my cupcake header picture*/
+
+body>.header>div>img {
+    width: 100px;
+    height: 100px;
+}
+
+
+/* The below code block fills in the background in the main section, it also spreads the main div across the grid*/
+
+.main>form,
+.main,
+p {
+    background-color: var(--background-light);
+    border-radius: 25px;
+}
+
+
+/* changing the text color for these elements but also removing any text decorations like dots for the lists and underlines*/
+
+h3,
+li,
+a {
+    color: var(--text-light);
+    list-style: none;
+    text-decoration: none;
+}
+
+
+/* this grid is used on the myvideopage and search page to lay out the movies in a grid format, this way no
+matter how many movies show up they just continue to fill the grid*/
+
+.divgrid {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto auto auto;
+    background-color: var(--background-light);
+}
+
+
+/*each movie on the divgrid is in a div, the background behind the div is set, and then put into a flexbox in each div to center 
+the elements within*/
+
+.divgrid>div {
+    background-color: var(--background-light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/*changing the color for the movie titles above each film and the background of the button and removing the border of the icons*/
+
+.divgrid>div>h3,
+.divgrid>div>button>span,
+.divgrid>div>button {
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    border: none;
+}
+
+
+/*sticking footer to the bottom of the screen*/
+
+.wrapper {
+    min-height: 100VH;
+}
+
+
+/*using the grid to span the footer across the bottom row,starting at the first column going to the end,
+placing a border above */
+
+.footer {
+    color: var(--text-light);
+    grid-row: end/span end;
+    grid-column: 1/span 3;
+}
+
+
+/*filling in the background of a bunch of elements that are places in main, changing text color, 
+rounding corners*/
+
+fieldset,
+p,
+label,
+legend,
+input,
+.title,
+.video,
+.form,
+.fieldset,
+.line,
+.main>div>div,
+.main>div>div>form,
+.main>div,
+.main>.line>div,
+textarea,
+.main>div>form {
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    border-radius: 25px;
+}
+
+.navline {
+    border-left: 3px solid var(--accent);
+}
+
+
+/* in addvideo page there is a select form so people can choose multiple options, this sizes them and
+changes text color*/
+
+select {
+    width: 8rem;
+    height: 5rem;
+    color: var(--text-dark);
+}
+
+
+/*the options will have a light background color and dark text*/
+
+select option {
+    background-color: var(--background-light);
+    color: var(--text-dark);
+}
+
+
+/*the first option uses the accent as a background*/
+
+select option:first-child {
+    background-color: var(--accent);
+}
+
+
+/*almost every page except myvideo and search contain a form, this is to set the size of those forms 
+and fieldsets, take the borders off and remove any outlines*/
+
+form,
+fieldset {
+    height: fit-content;
+    min-width: 0;
+    border: none;
+    outline: none;
+}
+
+
+/* addvideo has lots of divs dividing each element that takes an input.
+I am creating the grid here to organize them nicely. */
+
+.main>.line {
+    display: grid;
+    grid-template-rows: auto;
+}
+
+
+/*centering the text in the details flexboxes*/
+
+.main>.line>div>p {
+    text-align: center;
+}
+
+
+/*setting the max height/width for the image in details*/
+
+.main>div>img {
+    max-width: 40%;
+    max-height: 30%;
+}
+
+
+/*this is setting all the lines that are using the div class line in main*, this div
+served two purposes to help create flex containers and put the line where it made sense*/
+
+.line,
+.main>.line {
+    background-color: var(--background-light);
+    border-left: 6px solid var(--accent);
+    border-radius: 0px;
+    margin-left: 20%;
+}
+
+
+/* changing all the anchor tags to no decorations unless I add it,
+like the hover color change and text color*/
+
+a {
+    color: var(--text-light);
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+    color: var(--text-dark);
+    background-color: var(--accent);
+}
+
+a:active {
+    text-decoration: none;
+}
+
+
+/*some buttons are the same format*/
+
+#login,
+#password,
+#button,
+#submit {
+    background-color: var(--links);
+    color: var(--text-dark);
+    border: none;
+    border-radius: 25px;
+    width: 50%;
+}
+
+
+/*some buttons that are smaller on the addvideo page*/
+
+.main>.line>div>button,
+.submit {
+    background-color: var(--links);
+    color: var(--text-dark);
+    border: none;
+    border-radius: 25px;
+    width: 20%
+}
+
+
+/*the inputs throughout the pages, changing the background color, adding a bottom border,
+changing the width and taking away the border radius*/
+
+input[type=url],
+[type=text],
+[type=email],
+[type=search],
+[type=file],
+#cover,
+#coverfile {
+    background-color: var(--text-light);
+    border: none;
+    border-bottom: 2px solid var(--background-dark);
+    width: 50%;
+    border-radius: 0%;
+}
+
+
+/*filling in any text areas in main so they match the background*/
+
+textarea {
+    background-color: var(--text-light);
+}
+
+
+/*the h4 is used on the top of the main section on each page, added a line underneath and changing background to match*/
+
+legend,
+h4 {
+    color: var(--text-dark);
+    border-bottom: 3px solid var(--shadow);
+    border-radius: 0px;
+    background-color: var(--background-light);
+}
+
+
+/* creating the start slider, using the starsize from the root menu to make the size,
+calculating the number of starts times their size from the root menu,using touch to adjust, and removing any 
+default apperance of the range slider*/
+
+.rating {
+    block-size: var(--starsize);
+    inline-size: var(--w);
+    position: relative;
+    touch-action: manipulation;
+    -webkit-appearance: none;
+}
+
+
+/*using a linear gradient to move left to right using dir from root menu, it will fill it.
+but multiplying the value thats inputed by 100% and filling it with gold this is for mozilla */
+
+.rating::-moz-range-track {
+    background: linear-gradient(to var(--dir), var(--fill) 0 var(--x), var(--fillbg) 0 var(--x));
+    block-size: 100%;
+    mask: repeat left center/var(--starsize) var(--symbol);
+}
+
+
+/*same as above but for other browsers*/
+
+.rating::-webkit-slider-runnable-track {
+    background: linear-gradient(to var(--dir), var(--fill) 0 var(--x), var(--fillbg) 0 var(--x));
+    block-size: 100%;
+    mask: repeat left center/var(--starsize) var(--symbol);
+    -webkit-mask: repeat left center/var(--starsize) var(--symbol);
+}
+
+
+/*changing the color of main header text*/
+
+h1 {
+    color: var(--text-light);
+}
+
+
+/*changing the color and size of h2 used in the nav bar*/
+
+h2 {
+    font-family: Lato, sans-serif;
+    font-size: 400;
+    color: var(--text-dark);
+    background-color: var(--background-light);
+}
+
+
+/*changing the color and size of h3 used throughout main*/
+
+h3 {
+    font-family: Lato, sans-serif;
+    font-size: 400;
+    color: var(--text-light);
+}
